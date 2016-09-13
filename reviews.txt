@@ -61,7 +61,7 @@
            |  
            |  Section 4: This is a better way of organizing the material than in
            |  the SIGIR version. Collect and report on the data first. And only
-           |  interpret and conclude later. Moving bits from section 3 here (on
+    Done   |  interpret and conclude later. Moving bits from section 3 here (on
            |  crowd judging and score normalization) makes good sense. Figures 1
            |  and 2 are new. And so is section 4.2; adding a sentence to 4.2 with
            |  the upshot of the section would be useful. The expansion of 4.3
