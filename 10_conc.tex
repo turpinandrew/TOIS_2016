@@ -1,0 +1,186 @@
+
+\section{Conclusions and Future Work}
+%\section{Discussion and Conclusions}
+\label{sec-conc}
+
+% \sm{to be revised according to new material. Also, I guess we should add some more ``meat'' to this section}
+% 
+% \aht{The failure anaysis of 23 docs with max/min ratio $>$10000 suggests that we might need a 0 in the scale,
+% and that we might want a quality check that looks at precision of ratios within a unit. For example if they
+% say, 1, 10, 37134: "Can you really be sure that this document is precisely 3.7134 times more relevant than the
+% previous?" It also suggests that the normalisation might need to be more agressive.
+% }
+% 
+
+Relevance is a fundamental concept in information retrieval,
+underpinning test collection-based system effectiveness evaluation.
+This is the first study to have collected large scale, real user data
+about relevance perceptions using magnitude estimation, obtaining 
+%
+through crowdsourcing
+%
+over 50,000 ratings across 18 TREC topics. 
+We close the paper by briefly summarizing our findings and sketching
+future work, as well as highlighting some limitations of this study.
+
+\subsection{Summary}
+\label{sec:summary}
+
+
+The first research question that was considered asked whether magnitude
+estimation is a suitable technique for judging relevance at the
+document level.
+A comparison of the overall distribution of magnitude estimation
+judgments shows a close alignment with ordinal graded relevance
+categories, both at the individual topic level, and across the set of
+18 topics as a whole.
+A high level of consistency was also established between the
+distribution of magnitude estimation judgments and classical binary
+relevance assessments.
+A failure analysis demonstrated that for those cases where the
+magnitude estimation and ordinal judgments disagree, this is typically
+not due to problems with magnitude estimation per se, but rather arises
+due to different judging context, or from ambiguity in the original
+topic statements.
+
+Magnitude estimation is a technique that may be unfamiliar to many
+people.
+The second research question therefore focused on the suitability of
+using crowdsourcing to obtain magnitude estimation judgments at scale.
+Aiming to avoid spam workers, our crowd task included four quality
+checks: a practice line length estimation task; a multiple choice topic
+understanding question; a check that magnitude estimates that were
+entered for two documents with known ordinal relevance were rank
+consistent; and, a minimum time of 20 seconds spent per document.
+The magnitude estimation judgments that were obtained after this
+process showed a high level of external agreement with existing TREC
+binary and Sormunen ordinal judgments: rank ordered magnitude
+estimation scores agree with binary judgments 86\% of the time, and
+with ordinal judgments 80\% of the time (the agreement with ordinal
+judgments is higher for ordinal levels that are further apart, and
+lower for ordinal levels that are closer together).
+The ranked agreement between binary and ordinal judgments was 85\%,
+giving confidence that the using magnitude estimation is robust as a
+scaling technique for document-level relevance.
+
+Considering the impact of magnitude estimation relevance judgments on
+IR system evaluation, the third research question, our analysis showed
+that results can vary substantially when different relevance scales are
+used, with a $\tau$ of 0.677 between system orderings when
+effectiveness is measured using nDCG@10 and comparing magnitude
+estimation scores with binary relevance across TREC runs.
+When comparing magnitude estimation with ordinal relevance on simulated
+runs, the correlation is even lower at 0.147.
+Moreover, when individual magnitude estimation scores are considered,
+rather than the mean, the correlations show a wide range of individual
+variation in terms of the perception of relevance.
+A key factor appears to be that different searchers have different
+perceptions of the extent of relevance variation, using wide or thin
+scales.
+Overall, the analysis suggests that it is important to incorporate
+different judging scales, rather that assuming that a single scale can
+closely reflect a larger population of users.
+
+We also employed magnitude estimation to directly investigate gain
+profiles, the fourth research question.
+Typically, gains in nDCG are set as linear or exponential profiles.
+Our analysis of user-reported relevance perception showed that the
+linear profile is a closer fit to the relevance perceptions of the
+``average'' user.
+However, the distribution of magnitudes again suggests that attempting
+to fit a single profile (or view of relevance) for system evaluation is
+unlikely to be sufficient, if the expectation is that the evaluation
+should be reflective of a broad user base.
+
+While on average our magnitudes were broadly equivalent to previous
+ordinal scales, the outstanding feature of our data was the wide range
+of scores that participants chose to employ in the judging task.
+In particular, at least half of the participants chose gain values that
+are not consistent with currently used values.
+Section~\ref{sec:ranking-trec-runs} shows that using judgments made on
+a wide scale leads to different system rankings than judgments
+collected on a narrow scale.
+Recall that these scales are not imposed on the judge, as they are in
+all previous relevance judgment tasks in the literature, but are chosen
+by the participants themselves.
+
+This is another key contribution of this study: when a priori
+categorical scales are used for relevance judgment tasks, there is no
+possible way to capture variance in human perception of the scale of
+relevance.
+In turn, this limits our understanding of how gain should be set in
+DCG-like metrics, and hence our ability to accurately evaluate systems.
+
+\subsection{Limitations and Future Work}
+\label{sec:sig-figs}
+
+This study is the first to investigate document level relevance
+judgments using magnitude estimation, at scale.
+A much-cited benefit of magnitude estimation is that it is a ratio
+scaling technique.
+Indeed, workers were instructed to assign relevance scores as ratios
+to those assigned to previous documents.
+However, some documents in the collected data lead to ratios that have
+a large number of significant figures.
+For example, in one unit, the first document was given a score of 54,
+and the second 76, implying that the worker thought that the second
+document was 1.407 times more relevant than the first.
+This seems like an unusually high amount of precision for such a task,
+and it may be that the worker was choosing numbers without closely
+following the ratio requirement.
+Intuitively, one might think that it would be possible to distinguish
+the relevance of two documents at a ratio of one significant figure
+(for example, ``2 times as relevant'', or ``100 times as relevant'');
+or maybe even two significant figures (``21 times as relevant'', or
+''140 times as relevant''); but it seems very unlikely that this could
+be done to three significant figures or more without extensive training
+and effort.
+We can safely assume that our crowdsourced workers were not trained in
+relevance assessment, nor spent more than a minute or two on each
+document (mean time to assess 78 seconds, standard deviation 86
+seconds).
+
+If we assess each unit of work using a criterion that each relevance
+score must have a ratio with at least one previously assigned score
+that has at most two significant figures, then 4806 of the
+7059 units match.
+If we are more strict, and insist on only one significant figure, then
+only 3591 of 7059 units match.
+It seems, therefore, that about half of the units are being completed
+without a strict adherence to the idea of assigning numbers following 
+ratio relationships.
+We note, however, that this might not be a problem in practice because of
+approximation and balancing effects: the 1.407 figure above is likely
+not exact, but may be a good approximation of a value between 1 and 2.
+Moreover, relevance is not a strictly defined concept, and the magnitude
+estimation is intended to reflect human perceptions.
+Overall, the obtained magnitude estimation scores
+were shown to have high external consistency with other judging scales.
+
+Throughout the paper we have assumed that topical relevance collected
+using magnitude estimation can be used directly as gain in DCG-like
+measures.
+While perhaps being more representative of user perceptions than other
+relevance scales, this still makes many assumptions about the user's
+search process which are probably untrue: for example, ignoring the
+interdependence of documents and other aspects of relevance.
+In future work, we plan to investigate whether magnitude estimation can
+be used to reliably scale other aspects of relevance such as novelty,
+as well as search outcome measures such as satisfaction, and to examine
+whether this can lead to more meaningful gain representations.
+
+In this paper we focused on quantitative analysis of the magnitude
+estimation process. As part of the judging interface, judges were also
+asked to enter short textual comments to justify their choice of score.
+We plan to analyze this qualitative data in future work.
+
+The bulk of the analysis in this paper considered magnitude estimation
+judgments as a reflection of relevance at the aggregate level. 
+A further interesting line of analysis would be to consider the
+technique at the topic level, as different perceptions of relevance may
+be useful of indications of topic difficulty, or as potential
+calibration functions of how well a system could be expected to perform.
+
+% Local Variables:
+% TeX-master: "ME-TOIS.tex"
+% End:

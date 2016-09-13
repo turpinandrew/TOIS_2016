@@ -1,0 +1,106 @@
+
+\section{Introduction}
+\label{sec-intro}
+
+Relevance is an important concept in information retrieval (IR), and
+relevance judgments form the backbone of test collections, the most widely-used
+approach
+for the evaluation of IR system effectiveness.
+Document relevance judgments are typically made using ordinal scales,
+historically at a binary level, and more recently with multiple
+levels~\citep{VooHar05}.
+However, despite its importance, operationalizing relevance for
+the evaluation of IR systems remains a 
+complicated issue; for example,
+when using an ordinal scale 
+ it is unclear how many relevance categories should be
+chosen~\cite{TanSha99}. 
+
+Magnitude estimation is a psychophysical technique for measuring the
+sensation of a stimulus.
+Observers  assign numbers to a series of stimuli, such
+that the numbers reflect the perceived difference in intensity of each
+item.
+The outcome is a ratio scale of the subjective perception of the
+stimulus; if a magnitude of 50 is assigned to one stimulus, and 10 to
+another, then it can be concluded that the two items are perceived in a
+5:1 ratio of sensation~\cite{moskowitz:1977}.
+While initially developed for the measurement of the sensation of
+physical stimuli such as the intensity of a light source, magnitude
+estimation has been successfully applied to the measurement of
+non-physical stimuli including the usability of
+interfaces~\cite{McG03}.
+
+Being able to derive ratio scales of subjective perceptions of the
+intensity of stimuli, magnitude estimation may be a useful tool for
+measuring and better understanding document relevance judgments.
+The application of magnitude estimation in the IR field has been
+limited to the consideration of the relevance of carefully curated
+abstracts returned from bibliographic databases~\citep{Eis88}, and our
+own small-scale pilot study~\cite{SchMad14,MadMiz15}.
+While suggestive, these studies have been limited in terms of
+demonstrating the broader utility of the approach, or its direct
+application to IR evaluation.
+In this work, we investigate the larger-scale application of magnitude
+estimation to document relevance scaling, reporting on a user study
+over 18 TREC topics and obtaining judgments for 4,269 documents.
+This is also the first work to consider the direct application of
+magnitude estimation to the evaluation of IR systems, and to rely on
+crowdsourcing workers to gather a large amount of magnitude estimation
+relevance assessments.
+Specifically, we consider four research questions.
+
+\begin{enumerate}[RQ1.]
+\itemsep 0em
+
+\item \label{item:rq1} Is the magnitude estimation technique suitable
+  for gathering document-level relevance judgments, and are the
+  resulting relevance scales reasonable with respect to our current
+  knowledge of relevance judgments?
+
+\item \label{item:rq4} 
+  Is crowdsourcing a viable method to gather robust magnitude
+  estimation values?
+  Crowdsourcing might exacerbate some of the
+  potential complications of using magnitude estimation, such as the
+  subjective scale used by each judge, or the difficulty in using a
+  ratio scale without proper training.     
+  Do the workers agree with
+  previous judgments, and are 
+  redundant workers required to obtain
+  agreement with previous judging methods? 
+
+\item \label{item:rq2} How does IR system evaluation change when ratio
+  scale magnitude estimation relevance judgments are used to calibrate
+  the gain levels of the widely-used nDCG and ERR evaluation metrics,
+  compared to using arbitrarily set gain values for a pre-chosen
+  number of ordinal levels?
+
+\item \label{item:rq3} Can magnitude estimation relevance scores
+  provide additional insight into user perceptions of relevance, into
+  actual gain values, and into individual gain profiles?  
+
+\end{enumerate}
+
+We also investigate the qualitative comments that users of the magnitude
+estimation relevance judging approach were required to make to justify
+their scores, and present an analysis of the relationship between
+comments, scores and source documents.
+
+In the next section, background material and related work are
+presented.
+Details of our user study and experimental methodology are provided in
+Section~\ref{sec-methods}, and the first descriptive results are
+presented in Section~\ref{sec:descr-stat}.
+The full analysis and discussion of our results, corresponding to the
+four research questions, are detailed in Sections~\ref{sec-rq1}
+to~\ref{sec-rq3}.
+% Section~\ref{sec:comment-analysis} details the analysis of the comments that
+% judges made to justify their magnitude estimation scores.
+Our conclusions and directions for future work are included in the
+final section of the paper.
+
+
+% Local Variables:
+% TeX-master: "ME-TOIS.tex"
+% End:

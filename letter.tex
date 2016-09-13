@@ -1,0 +1,100 @@
+\documentclass{letter}
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{a4wide}
+
+\setlength{\parindent}{0pt}
+
+
+\makeatletter
+\renewcommand*{\opening}[1]{%
+%  \ifx\@empty\fromaddress
+%    \thispagestyle{firstpage}%
+%      {\raggedleft\@date\par}%
+%  \else  % home address
+%    \thispagestyle{empty}%
+%    {\raggedleft\begin{tabular}{l@{}}\ignorespaces
+%      \fromaddress \\*[2\parskip]%
+%      \@date \end{tabular}\par}%
+%  \fi
+%  \vspace{2\parskip}%
+%  {\raggedright \toname \\ \toaddress \par}%
+  \vspace*{-3cm}%
+  \begin{minipage}[t]{0.5\textwidth}%
+    \toname \\ 
+    \toaddress
+  \end{minipage}\hfill\@date\par
+  \vspace{2\parskip}%
+  #1\par\nobreak}
+\makeatother
+
+
+\setlength\textheight{19.5cm}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{letter}{Editor-in-chief\\ ACM Transactions on Information Systems\\ University of Amsterdam}
+
+\opening{Dear Maarten,}
+
+Thank you for your invitation to submit our SIGIR 2015 paper 
+\emph{The Benefits of Magnitude Estimation for Relevance Assessment}
+as a fast-tracked TOIS paper.
+
+My co-authors and I have thoroughly revised the paper (in fact, probably a bit too
+thoroughly which is why it has taken us so long!), and attach it here
+for consideration as a TOIS paper.
+
+In comparison to the SIGIR paper, we have:
+\begin{itemize}
+    \item Added Research Question 2, addressing the number of crowd
+          workers required to make magnitude estimation successful in this context.
+    \item Added Section 2.3 discussing crowd sourcing
+    \item Added the complete instructions given to workers as an appendix
+    \item Added Figures 1 and 2 and accompanying text in Section 4
+    \item Reformatted and added explanation to the normalisation method for ME
+    \item Added references mentioned by SIGIR reviewers of which we were unaware
+    \item Added gsd panel to Figure 5
+    \item Completely reworked Section 6.1, including adding Fig 6, recomputing
+          Fig 7 differently from SIGIR, Adding Figure 8
+    \item Section 6.3 is new, including Figure 9 and Table II
+    \item Parts of 7.2 have been reworked, Table III expanded, Figures 
+          10 and 11 recomputed using a slightly different (hopefully more robust) method, 
+          and Table IV recomputed.
+    \item The second half of Section 8 has been reworked, including recomputation of Figure 15.
+    \item Section 9 (Conclusions and Future Work) is almost entirely new text.
+\end{itemize}
+
+The second page of this letter contains an infographic showing the current TOIS
+submission compared with the SIGIR paper computed using \emph{latexdiff}.
+Black text is from the SIGIR paper, blue text is added, and red shows
+deleted text. Considering both the text and the figures that we have revised, I think
+we exceed the required 25\% new material.
+
+I can confirm that all authors are aware of the submission, and agree
+to its review by TOIS.
+
+I would suggest Ryen White, Charlie Clarke and Tetsuya Sakai as possible Associate
+Editors to handle this submission. No authors have conflict with these AEs.
+
+I hope you find it acceptable for consideration by your reviewers.
+
+Yours Sincerely,
+
+\includegraphics[scale=0.5]{/Users/aturpin/doc/my signature.pdf}
+
+Andrew Turpin\\
+Department of Computing and Information Systems\\
+University of Melbourne\\
+Australia.
+
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[scale=0.5]{sigir_in_this_format/diff-nup.jpg}
+
+
+\end{letter}
+\end{document}

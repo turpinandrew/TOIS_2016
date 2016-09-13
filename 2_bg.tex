@@ -1,0 +1,183 @@
+
+\section{Background}
+\label{sec-background}
+
+\subsection{Relevance} 
+%\myparagraph{Relevance:}
+Relevance is an important concept in information science and
+information retrieval~\cite{Sar07}.
+IR system effectiveness is most often measured with reference to a test
+collection, consisting of a set of search topics, a static set of
+documents over which to search, and human-generated assessments that
+indicate, for an answer document returned by a search system in
+response to a topic, whether the document is relevant~\citep{VooHar05}.
+Typically, these assessments are made based on ``topical'' relevance,
+that is, a judgment of whether the document contains any information
+that is ``about'' the material that the search topic is asking for.
+Other aspects of relevance, such as novelty or contextual factors, are
+not considered~\cite{Sar07}.
+Based on the relevance judgments, each ranked answer list returned by
+a system is aggregated into a number that reflects the system's
+performance, using a chosen effectiveness metric.
+The metrics themselves instantiate either implicit or explicit assumptions
+about searcher behavior, for example that a relevant document that is
+returned by a system lower down a ranked list is of less value
+than if the same document had been returned earlier.
+
+Historically, relevance judgments were often made using a 
+\emph{binary} scale, where a document is classed as either being
+relevant to the search topic or not, and many effectiveness metrics use
+this notion of relevance, including 
+\emph{precision}, \emph{recall}, 
+\emph{mean average precision} (MAP), and \emph{precision at a specified cutoff}~\cite{VooHar05}.
+More recently, based on the observation that searchers can generally
+distinguish between more than two levels of relevance, evaluation
+metrics that incorporate \emph{multi-level} relevance have been
+proposed~\cite{JarKek02}.
+Here, relevance is typically measured on an ordinal scale; metrics that
+include this more fine-grained notion of relevance include 
+\emph{normalized discounted cumulative gain} (nDCG)~\cite{JarKek02},
+\emph{expected reciprocal rank} (ERR)~\cite{ChaMet09}, and the
+\emph{Q-measure}~\cite{Sakai07}.
+Some examples of previous choices for the number of levels in ordinal
+relevance scales include 3 (TREC Terabyte Track~\cite{ClaCra04}), 4
+(TREC newswire re-assessments by~\citet{Sormunen:2002}), and 6 (TREC
+Web Track~\cite{ColBen14}).
+\citet{TanSha99} studied the self-reported confidence of psychology
+students when assessing the relevance of bibliographic records on
+ordinal scales from 2 to 11 levels, and observed that for this specific
+task, confidence is maximized with a 7-point scale.
+However, the issue is far from settled: in a broader survey of the optimal number of levels in an ordinal
+response scale, \citet{Cox80} concludes that there is no single number
+of response alternatives that is appropriate for all situations.
+
+\subsection{Magnitude Estimation} 
+
+%\myparagraph{Magnitude estimation:}
+Magnitude estimation (ME) is a psychophysical technique for the construction
+of measurement scales for the intensity of sensations.
+An observer is asked to assign numbers to a series of presented
+stimuli.
+The first number can be any value that seems appropriate, with
+successive numbers then being assigned so that their relative
+differences reflect the observer's subjective perceptions of
+differences in stimulus intensity~\citep{EhrEhr99}.
+A key advantage of using magnitude estimation is that the responses are
+on a ratio scale of measurement~\citep{Ges97}, meaning that all mathematical operations
+may be applied to such data, and parametric statistical analysis
+can be carried out.
+In contrast, for ordinal (or ranked category) scales certain operations
+are not defined; for example, the median can be used as a measure of
+central tendency for ordinal data, but the mean is not meaningful since
+the distance between the ranked categories is not defined~\citep{She07}.
+
+Proposed by Stanley Stevens in the 1950s, magnitude estimation
+has a long history, and is the most widely-used psychophysical
+ratio scaling technique~\cite{Ges97}.
+Initially developed to measure perceptions of physical stimuli, such as
+the brightness of a light or the loudness of a sound, magnitude
+estimation has also been successfully applied to a wide range of
+non-physical stimuli in the social sciences (including occupational
+preferences, political attitudes, the pleasantness of odors, and the
+appropriateness of punishments for crimes~\citep{Ste66}), in medical
+applications (such as levels of pain, severity of mental disorders, and
+emotional stress from life events~\citep{Ges97}), in user experience
+research (for example, as a measure of usability in HCI~\citep{McG03},
+and for health-care applications~\citep{Joh10}), and in linguistics
+(including judging the grammaticality of sentences~\citep{BarRob96}).
+
+In information retrieval research, 
+\citet{Eis88} investigated magnitude estimation in the context of
+judging the relevance of document citations from a library database
+(including fields such as author, title, keywords and abstract), and
+concluded that participants are able to effectively use magnitude
+estimation in such a scenario.
+A related technique was used by 
+\citet{SpiGre01}, where
+participants in a user study were required to fill in a worksheet with
+information about the relevance of resources that were retrieved from a
+library database for personal research projects; this included
+indicating the level of relevance on a 4-level ordinal scale, providing
+feedback about other levels of relevance such as utility and
+motivation, and marking the level of relevance on a 77mm line.
+The line was then decoded into numbers at a 1mm resolution
+so was in effect a 78-level ordinal scale.
+
+To the best of our knowledge, the only previous investigation of
+magnitude estimation for document-level relevance judging in the
+context of IR evaluation was our own small pilot study~\cite{SchMad14,MadMiz15}.
+That study indicated that 
+magnitude estimation could be useful for
+measuring document-level relevance, but used only 
+3 information need statements and 33 documents.
+In this paper we carry out a much larger-scale study, across 18 TREC
+topics and 4269 documents.
+Unlike previous studies, 
+our work also explores the application of this scaling approach to the
+direct calibration of effectiveness metrics for IR system evaluation,
+and the relationship between the magnitude relevance space and the
+concept of gain.
+
+\subsection{Crowdsourcing}
+\label{sec:crowdsourcing}
+
+The third ingredient of our work is crowdsourcing. 
+namely the outsourcing of a task usually performed by experts to a
+crowd by means of an open call. 
+Although criticized by some \cite{keen2008}, crowdsourcing has been
+shown to be effective for several tasks, at least under some
+conditions, and
+% blog posts? 
+% Iperiotis?,
+it has been (and still is) much used as a method to collect relevance
+judgments. 
+
+For example \citet{Alonso:2012} compared relevance judgments gathered
+by the crowd vs.\ more experienced TREC assessors, finding comparable
+accuracy. 
+Others have attempted to measure relevance in various ways, including
+graded judgments \cite{mccreadie:2011}, preference-based judgments
+\cite{Anderton2012}, and multidimensional ones \cite{Zhang2014}.
+Collecting relevance labels through crowdsourcing has also been used
+in practice, for example in the TREC blog track \cite{mccreadie:2011},
+or in the judgment task of the TREC Crowdsourcing Track
+\cite{Smucker2014}. 
+Still in the IR field, it has been shown that crowdsourcing can be
+effective not only to collect relevance judgments, but also for more
+complex tasks \cite{Zuccon:2013}.
+
+
+Of course, quality is an issue: workers might be too inexperienced for
+some tasks, or even behave maliciously to finish the task without any
+accuracy, perhaps even in a random way, just to gain money. 
+Several papers address this problem.
+For example, \citet{Clough2013} show that even if workers disagree,
+system rankings might not change. 
+\citet{Kazai2013} study how several factors (e.g., pay, effort, worker
+qualifications, motivations, and interest) can affect the quality of
+the relevance judgments collected.
+
+Appropriate aggregation methods can be used as countermeasures to low
+quality work. 
+\citet{Hosseini:2012} and \citet{Jung2011} compare the classical
+aggregation method of majority voting with more sophisticated
+approaches that take into account a worker's expertise (based on
+expectation maximization and outlier detection, respectively), finding
+the latter to be more effective. 
+
+
+In this work, we use crowdsourcing to gather magnitude estimation
+relevance assessments at scale.
+Apart from our own pilot studies \citep{SchMad14,MadMiz15} we
+are not aware of any studies that uses crowdsourcing to gather magnitudes,
+let alone using crowdsourcing to gather relevance judgments expressed
+by magnitude estimation.
+Since magnitude estimation is a process that is unlikely to be familiar
+to the average crowd worker, analyzing the suitability of the crowd for
+completing such tasks is novel.
+
+% Local Variables:
+% TeX-master: "ME-TOIS.tex"
+% End:
+
+

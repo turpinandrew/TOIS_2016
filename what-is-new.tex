@@ -1,0 +1,57 @@
+\documentclass{article}
+
+ \usepackage{xr}
+%\usepackage{xr-hyper,hyperref}
+ \usepackage{hyperref}
+\externaldocument{ME-TOIS}
+
+% \usepackage{zref-xr}
+% \zexternaldocument{ME-TOIS}
+
+\title{What's new}
+
+\begin{document}
+\maketitle
+
+\section*{What's new}
+%\label{sec:whats-new}
+
+Things that are new w.r.t.\ SIGIR and that we should mention in the
+submission letter. 
+Let us collect them here, using the power of this xr latex package
+that allowa to use Latex references:
+
+\begin{itemize}
+
+\item Overall, the paper is much longer. We have gone from 20 pages
+  (once reformatted the SIGIR paper into ACM TOIS style)  to \pageref{sec:task-steps} 
+pages, therefore adding more than 40\% (indeed, almost 50\%) new material.
+\item The paper now contains a new analysis of several crowdsourcing
+  related aspects:
+  \begin{itemize}
+  \item one new Research Question in Section~\ref{sec-intro} (RQ\ref{item:rq4});
+  \item new related work on crowdsourcing (Section~\ref{sec:crowdsourcing});
+  \item a new analysis of ME score distributions
+    (Section~\ref{sec:score-distribution}, more than 1 novel page);
+  \item more details on score normalization and aggregation
+    (Section~\ref{sec:score-normalization}, added 1 novel page);
+  \item more details on agreement in Section~\ref{sec:judge-agreement}
+    (added around 2 novel pages);
+  \item the novel analysis on how many workers are needed, in
+    Section~\ref{sec:how-many-workers} (more than 1 novel page added).
+  \end{itemize}
+\item Of the 15 figures in the paper, 6 figures (40\% of them), ie.e., Figures~\ref{fig:ME-raw-scores}, \ref{fig:ME-norm-scores},
+  \ref{fig:judgeVariability}, \ref{fig:workersQuality},
+  \ref{fig:normaggagain}, and \ref{fig:sampleStandardDeviations}, are
+  completely new. Also, 3 figures, i.e., Figures~\ref{fig:agreement},
+  \ref{fig:runs-rerank-median3best}, and \ref{fig:runs-rerank-median3best-fake} have been modified.
+\item The paper has been restructured in several parts.
+\item The references now contain  several new papers, including those previously suggested by referees.
+%\item comment analysis, §9
+\item We have added an appendix with full details of the crowdsourcing
+  instructions, for the sake of replicability. 
+\item Everything has been revised.
+ 
+\end{itemize}
+\end{document}
+

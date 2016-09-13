@@ -1,0 +1,148 @@
+\documentclass[prodmode,acmtois]{acmsmall}
+
+\usepackage{amsfonts}
+\usepackage{amssymb,amsmath}
+\usepackage{xcolor}
+\usepackage{times}
+\usepackage[square,sort,numbers]{natbib}
+\setlength{\bibsep}{0.0pt}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage[bookmarksnumbered=true,bookmarksopenlevel=4,bookmarksopen=true]{hyperref} 
+\usepackage{xcolor}
+\definecolor{dark-red}{rgb}{1,0.15,0.15}
+\definecolor{dark-blue}{rgb}{0.15,0.15,1}
+
+\hypersetup{
+ colorlinks   = true, %Colours links instead of ugly boxes
+ urlcolor     = dark-red, %blue Colour for external hyperlinks
+ linkcolor    = dark-red, % blueColour of internal links
+ citecolor   = dark-blue, %green, %red %Colour of citations
+}
+
+\newcommand{\hh}{{\tt H}\xspace}
+\newcommand{\rr}{{\tt R}\xspace}
+\newcommand{\mm}{{\tt M}\xspace}
+\newcommand{\nn}{{\tt N}\xspace}
+\newcommand{\nkn}{{\tt N$_k$}\xspace}
+\newcommand{\hkh}{{\tt H$_k$}\xspace}
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\usepackage{xcolor}
+\usepackage{xargs}  
+\usepackage[textsize=small]{todonotes}
+%\newcommand{\sm}{\todo[author=\textbf{SM}, color=yellow,inline]}
+\newcommandx{\ssm}[2][1=]{\todo[fancyline,author=\textbf{SM},linecolor=yellow,backgroundcolor=yellow,bordercolor=black,#1]{#2}}
+%\newcommand{\aht}{\todo[author=\textbf{AHT}, color=green,inline]}
+%\newcommand{\fs}{\todo[author=\textbf{FS}, color=cyan,inline]}
+
+%\newcommand{\todo}[1]{\textcolor{red}{[{\bf #1}]}}
+\newcommand{\sm}[1]{\textcolor{blue}{[{\bf SM: #1}]}}
+\newcommand{\aht}[1]{\textcolor{green}{[{\bf AHT: #1}]}}
+\newcommand{\fs}[1]{\textcolor{cyan}{[{\bf FS: #1}]}}
+\newcommand{\ehm}[1]{\textcolor{orange}{[{\bf EHM: #1}]}}
+
+%\newcommand{\myparagraph}[1]{\vspace{0.5\baselineskip}\noindent{\textbf{#1}}~}
+\newcommand{\defineterm}[1]{\emph{#1}}
+
+
+%% Avoid floats going to pages / columns by themselves
+\renewcommand{\dbltopfraction}{0.9}  % fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}  % allow minimal text w. figs
+        %   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}  % require fuller float pages
+          % N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7} % require fuller float pages
+
+
+ %\acmVolume{V}
+ %\acmNumber{N}
+ %\acmArticle{A}
+ %\acmYear{YYYY}
+ %\acmMonth{0}
+\markboth{}{}
+
+\title{On The Benefits of Magnitude Estimation Relevance Assessments
+  for Information Retrieval Evaluation}
+
+\title{Crowdsourcing Relevance Magnitudes for Information Retrieval
+  Evaluation: On Using Magnitude Estimation to Gather Relevance
+  Assessments by Means of Crowdsourcing}
+
+\title{On Crowdsourcing Relevance Magnitudes for Information Retrieval
+  Evaluation}
+
+\author{
+EDDY MADDALENA
+\affil{University of Udine, Italy}
+STEFANO MIZZARO
+\affil{University of Udine, Italy}
+FALK SCHOLER
+\affil{RMIT University, Australia}
+ANDREW TURPIN
+\affil{University of Melbourne, Australia}
+}
+
+\begin{document}
+
+\begin{bottomstuff}
+Author's addresses: Eddy Maddalena, University of Udine, Udine 33100,
+Italy, eddy.maddalena@uniud.it; 
+Stefano Mizzaro, University of Udine, Udine 33100, Italy,
+mizzaro@uniud.it; 
+Falk Scholer. RMIT University, Melbourne, Victoria 3001, Australia,
+falk.scholer@rmit.edu.au; 
+Andrew Turpin, University of Melbourne, Melbourne, Victoria 3010,
+Australia, aturpin@unimelb.edu.au. This paper is a revised and
+extended version of \citet{ME-SIGIR15}.
+\end{bottomstuff}
+
+
+
+
+\input{0_abstract.tex}
+
+
+\category{H.3.4}{Information Storage and Retrieval}{Systems and
+  software}[performance evaluation] 
+\terms{Measurement, performance, experimentation}
+\keywords{Magnitude estimation, evaluation, relevance assessments,
+  relevance} 
+
+\acmformat{...}
+\maketitle
+% \sm{I think there are good reasons to add ``crowdsourcing'' to the title: the comment analysis is rather related to CS, and it may make sense to add a new CS-related RQ}
+ 
+\input{1_intro.tex}
+\input{2_bg.tex}
+\input{3_methods.tex}
+\input{4_descriptive_stats.tex}
+\input{5_results_RQ1.tex}
+\input{6_results_RQ2.tex}
+\input{7_results_RQ3.tex}
+\input{8_results_RQ4.tex}
+%\input{9_comments.tex}
+\input{10_conc.tex}
+\input{11_appendix.tex}
+
+%Acknowledgments
+\begin{acks}
+  This work was supported in part by the Australian Research Council
+  (\emph{Discovery Project} DP130104007) and in part by a Google Faculty Research Award. 
+\end{acks}
+
+%\bibliographystyle{abbrvnat}
+\bibliographystyle{ACM-Reference-Format-Journals}
+\bibliography{bib}
+
+%\received{Month Year}{Month Year}{Month Year}
+
+\label{sec:task-steps}
+%\input{what-is-new.tex}
+
+\end{document}

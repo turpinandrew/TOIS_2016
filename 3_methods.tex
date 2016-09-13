@@ -1,0 +1,300 @@
+\section{Experimental Methodology}
+\label{sec-methods}
+
+In this section we describe the details of the experiments that were
+carried out to crowdsource
+%gather
+the required relevance judgments using magnitude estimation.
+
+\subsection{Topics and Documents}
+
+Document-level relevance assessments have traditionally been made using
+binary or multi-level ordinal scales.
+To compare magnitude estimation judgments to these approaches, we
+selected a set of search tasks and documents from the TREC-8 ad hoc
+collection, which studies informational search over newswire documents.
+The TREC-8 collection includes binary relevance judgments made by
+NIST assessors~\cite{VooHar99}. Subsequently, \citet{Sormunen:2002} carried out a
+re-judging exercise where a subset of topics and documents were judged
+by a group of six Master's students of information studies, fluent in English although not native speakers,
+on a 4-level ordinal relevance scale: \nn--not relevant (0);  
+\mm--marginally relevant (1); \rr--relevant (2); \hh--highly relevant
+(3).
+
+The 18 \emph{search topics} used in our study were the subset of TREC-8 topics
+which also have Sormunen ordinal judgments available. 
+They are listed in the first column of Table~\ref{tab:descr-stat}.
+The \emph{documents} for which we collected magnitude estimation
+judgments were the set of the top-10 items returned by systems that
+participated in TREC-8.  
+This gives a total of 4,269 topic-document pairs, of
+which 3881 have binary TREC relevance judgments available, and 805 
+of which have Sormunen ordinal judgments available.
+The number of documents for each topic is shown in 
+Table~\ref{tab:descr-stat} (2nd column). 
+
+\begin{table}[t]%
+%   \centering
+% %\begin{footnotesize}
+% \begin{scriptsize}
+\tbl{Topics, number of documents, number of units, \hkh, \nkn, number of back buttons
+  usage, number of failures in the (c) and (d) checks, as detailed in
+  the text.\label{tab:descr-stat}%
+}{%
+%  \begin{tabular}{@{}l @{ } r @{ } r  l@{ }l  @{ }  r@{ }r@{ }r  @{ } c@{  } r@{ }r@{ }r@{}}
+  \begin{tabular}{l rr  ll rrrcrrr}
+\toprule
+    Topic&
+\multicolumn{1}{l}{No.}  & 
+\multicolumn{1}{l}{No.}  &   
+\hkh &
+\nkn & 
+\multicolumn{3}{c}{Back} && 
+\multicolumn{3}{c}{Fail}\\ 
+    & 
+\multicolumn{1}{l}{docs} & 
+\multicolumn{1}{l}{units} &    
+&  
+& 
+\multicolumn{1}{c}{$0$} & 
+\multicolumn{1}{c}{$1$}& 
+\multicolumn{1}{c}{$\ge 2$} && 
+\multicolumn{1}{c}{$0$}& 
+\multicolumn{1}{c}{$1$}& 
+\multicolumn{1}{c}{$\ge2$}\\ 
+
+% \multicolumn{1}{@{}l@{}}{No.}  & 
+% \multicolumn{1}{@{}l@{}}{No.}  &   
+% \hkh &
+% \nkn & 
+% \multicolumn{3}{c}{Back} && 
+% \multicolumn{3}{c}{Fail}\\ 
+%     & 
+% \multicolumn{1}{@{}l@{}}{docs} & 
+% \multicolumn{1}{@{}l@{}}{units} &    
+% &  
+% & 
+% \multicolumn{1}{@{}c@{}}{$0$} & 
+% \multicolumn{1}{@{}c@{}}{$1$}& 
+% \multicolumn{1}{@{}c@{}}{$\ge 2$} && 
+% \multicolumn{1}{@{}c@{}}{$0$}& 
+% \multicolumn{1}{@{}c@{}}{$1$}& 
+% \multicolumn{1}{@{}c@{}}{$\ge2$}\\ 
+
+\midrule
+402	& 278	& 460	& LA111689-0162	& FBIS3-10954       & 452 &  8 & 0 && 426 & 18 & 16\\
+403	& 111	& 182	& LA092890-0067	& LA071290-0133     & 178 &  4 & 0 && 120 & 19 & 43\\
+405	& 214	& 354	& LA061490-0072	& FBIS3-13680       & 347 &  6 & 1 && 322 & 20 & 12\\
+407	& 212	& 350	& FT921-6003	& FR940407-2-00084  & 346 &  3 & 1 && 324 &  9 & 17\\
+408	& 188	& 310	& FT923-6110	& LA062290-0070     & 306 &  4 & 0 && 266 & 16 & 28\\
+410	& 212	& 350	& FBIS4-64577	& FBIS4-44440       & 346 &  4 & 0 && 326 & 10 & 14\\
+415	& 179	& 295	& FBIS3-60025	& FBIS4-10862       & 289 &  4 & 2 && 255 & 23 & 17\\
+416	& 174	& 287	& FBIS4-49091	& LA112590-0107     & 286 &  1 & 0 && 267 & 12 &  8\\
+418	& 243	& 402	& LA102189-0167	& FT924-6324        & 394 &  8 & 0 && 372 & 15 & 15\\
+420	& 164	& 270	& LA121590-0108	& LA112690-0001     & 266 &  4 & 0 && 256 &  4 & 10\\
+421	& 342	& 567	& FT941-428	& LA073189-0033     & 554 & 11 & 2 && 537 & 16 & 14\\
+427	& 195	& 322	& FT943-5736	& LA080590-0077     & 315 &  7 & 0 && 214 & 52 & 56\\
+428	& 253	& 419	& FT943-9226	& FBIS3-20994       & 412 &  6 & 1 && 396 & 13 & 10\\
+431	& 203	& 335	& FBIS3-46247	& FT944-5962        & 333 &  2 & 0 && 296 & 27 & 12\\
+440	& 264	& 437	& FT942-3471	& LA020589-0074     & 427 & 10 & 0 && 397 & 19 & 21\\
+442	& 408	& 677	& LA011390-0057	& FT923-4524        & 672 &  5 & 0 && 629 & 25 & 23\\
+445 	& 210	& 347	& FT924-8156	& LA031989-0092     & 334 & 11 & 2 && 334 & 10 & 3 \\
+448	& 419	& 695	& LA080190-0139	& FBIS3-16837       & 687 &  8 & 0 && 652 & 21 & 22\\
+\addlinespace                                                              
+Sum:	&4269	&7059	&		&	            &6944& 106 & 9 &&6389 &329 &341 \\ 
+\multicolumn{2}{@{}l@{}}{Percentage:}&&  &                   &  98 &  2 & 0 &&  90 & 5  & 5 \\
+\bottomrule
+  \end{tabular}%
+}%
+%\end{scriptsize}
+\end{table}
+
+
+\subsection{User Study}
+
+We carried out a user study through the CrowdFlower crowdsourcing
+platform during December 2014 and January 2015.
+The experimental
+design was reviewed and approved by the RMIT University 
+ethics
+review board.
+Participants were paid \$0.2 for each task \emph{unit}, defined as a group of
+magnitude estimation judgments for 8 documents in relation to one
+topic. 
+The number of units for each topic is shown in
+Table~\ref{tab:descr-stat} (3rd column). 
+
+\subsubsection{Practice task}
+\label{sec:practice-task}
+
+%\myparagraph{Practice task:}
+After agreeing to take part in the study, a participant was shown 
+a first set of 
+task
+instructions, including a brief
+introduction to the experiment and explanation of the
+magnitude estimation process.
+Since magnitude estimation may not be familiar to participants, they
+were first asked to complete a practice task, making magnitude
+estimations of three lines of different lengths, shown one at a time.
+If they successfully completed this practice task (success was defined
+as assigning magnitudes such that the numbers were in ascending order
+when the lines were sorted from shortest to longest), participants were
+able to move on to the main part of the experiment.
+The full instructions shown to participants for the practice task are
+included in Appendix A.
+
+\subsubsection{Main task}
+\label{sec:main-task}
+
+
+%\myparagraph{Main task:} 
+The main task of the experiment required
+making magnitude estimations of the relevance of documents.
+Participants were informed, by means of a second set of instructions,
+that they would be shown an information need statement, and then a
+sequence of eight documents that had been returned by a search system
+in response to the information need statement, presented in an
+arbitrary order, and that their task was to 
+\emph{indicate how relevant these documents appear} in relation to the information need. 
+
+For the main task, the title, description and narrative of a TREC topic
+were first displayed at the top of the screen.
+After reading the information need, participants had to respond to a
+4-way multiple-choice question, to test their understanding of the
+topic.
+The test questions focused on the main information concepts presented
+in the topic statements, and were intended to check that participants
+were engaging with the task, and as a mechanism to remove spammers.
+Participants who were unable to answer the test question correctly were
+unable to continue with the task.
+
+Next, participants were presented with eight documents, one at a time.
+For each document, the participant was required to enter a magnitude estimation 
+number in a text box displayed directly below the document, and 
+a brief justification of why they
+entered their number into a larger text field.
+They were then able to proceed to the next document.
+A back button was available in the interface, with participants being
+advised that this should only be used if they wish to correct a mistake;
+under 3\% of submitted jobs included use of this feature 
+(details on the occurrences of clicks on the back button are shown in
+Table~\ref{tab:descr-stat}, where the number of units with zero, one, or two
+or more back button clicks are shown).
+
+After entering responses for eight documents, the task was complete.
+Participants were able to complete further tasks for other topics, up
+to a maximum of 18 tasks, as they were not able to re-assess the same
+topic.
+
+\subsubsection{Magnitude estimation assignments}
+\label{sec:magn-estim-assignm}
+
+%\myparagraph{Magnitude estimation assignments:} 
+Participants were instructed 
+to assign ME scores as follows.
+\emph{You may use any numbers that seem appropriate to you -- whole numbers,
+fractions, or decimals.
+However, you may not use negative numbers, or zero.
+Don't worry about running out of numbers -- there will always be a
+larger number than the largest you use, and a smaller number than the
+smallest you use.
+Try to judge each document in relation to the previous one.
+For example, if the current document seems half as relevant as the
+previous one, then assign a score that is half of your previously
+assigned score.} 
+While some applications of
+magnitude estimation use a fixed modulus (specifying a particular number that
+is to be assigned to the first stimulus that is presented), this has
+been found to promote clustering of responses and the potential
+over-representation of some numbers~\cite{moskowitz:1977}; we therefore
+allowed participants to freely choose their own values.
+The complete
+instructions that were shown to participants for both the practice and
+main tasks are included in Appendix A.
+
+\subsubsection{Document ordering}
+\label{sec:document-ordering}
+
+% \myparagraph{Document ordering:} 
+As explained above, each participant
+task \emph{unit} required the judging of a set of eight documents for a particular search
+topic statement.
+The experiments used a randomized design, with documents presented in
+random order, to avoid potential ordering effects and first sample
+bias~\cite{moskowitz:1977}.
+The document sets were constructed such that two of the documents in
+each set were a known ordinal \hh and \nn document for the topic;
+%
+these documents %(referred to in the following as
+(henceforth \hkh and \nkn) were the same for all 
+the participants working on the same topic 
+(the TREC document identifiers for each
+topic are shown in Table~\ref{tab:descr-stat}).
+This was to ensure that each participant saw at least one document from
+the high and low ends of the relevance continuum.
+Ensuring that stimuli of different intensity levels are included in a
+task has been found to be important for the magnitude estimation
+process~\cite{Ges97}, and also has an impact on the score normalization
+process, described below.
+Moreover, including the two \nkn and \hkh documents with ``known'' ordinal relevance
+values enabled a further data collection quality control check: after
+judging all eight documents, participants who had assigned magnitude
+estimation scores for the \nkn document that were larger than for the
+\hkh document were not able to complete the task.
+In total, at least 10 ME scores were gathered for each topic-document
+pair.
+
+\subsubsection{Quality checks}
+\label{sec:quality-checks}
+
+% \myparagraph{Quality checks:} 
+In total, four quality checks were included in the
+data gathering phase of our experiments: 
+%\vspace{-0.5em}
+\begin{enumerate}[(a)]
+%\itemsep 0em
+\item a practice task requiring magnitude estimation of line lengths; 
+\item a multiple-choice test question to check a participant's
+understanding of the topic; 
+\item a check that the magnitude estimations score for \hkh was greater than that
+assigned to \nkn; and 
+%\end{enumerate}
+%\vspace{-0.5em}
+%In addition, a time-based quality check was also used: 
+%\vspace{-0.5em}
+%\begin{enumerate}[(d)]
+\item each participant had to spend at least 20 seconds on each of the
+8 documents.
+\end{enumerate}
+%\vspace{-0.5em}
+%
+If any of (a) or (b) was unsuccessful, the participant could not
+continue with the task.
+They were allowed to restart from scratch, on a
+different unit and therefore on a randomly selected topic, if willing
+to do so; the same quality checks were applied again.
+If checks (c) or (d) were unsuccessful, the participant received the
+message ``\emph{Your job is not accurate enough.
+You can revise your work to finish the task}'', and was allowed to use
+the back button and revise their previously assigned scores if they
+wished (the same two checks (c) and (d) were performed again in such a
+case); however, participants were not made aware which documents or
+scores were the ``offending'' responses.
+Less than 10\% of units resulted in conditions (c) or (d) being
+triggered (see details in Table~\ref{tab:descr-stat}, where the number
+of eventually successful units with 0, 1, or two or more failed checks
+are shown), and as already mentioned the back button was used in less
+than 3\% of units.
+Finally, there was a syntax check that the numeric scores input by the
+participants were in the $(0,+\infty)$ range.
+If any of the checks were not successfully completed, no data for that
+unit was retained.
+Based on these extensive quality checks, we did not carry out 
+any further filtering once the data had been collected.
+
+
+
+% Local Variables:
+% TeX-master: "ME-TOIS.tex"
+% End:

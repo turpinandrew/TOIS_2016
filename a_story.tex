@@ -1,0 +1,114 @@
+\section{Appendix: NOTES,  TO BE REMOVED}
+
+
+Outline of story
+\begin{itemize}
+\item Previous authors have played around with ME and shown it can work.
+
+\item We decided to do it on a larger scale with TREC data to explore the relevance
+landscape and look at the effect of judgement variability on gain-based-metrics and system rankings.
+
+\item RQ1: Can ME be used to collect reasonable judgements on a large scale?
+        (What does reasonable mean?) Cheap?
+        Agreement of pairwise ranks between S, T and ME scores (median and variable) (across and within topics?).
+        Across topic variability - does normalisation lead to consistent scores per topic?
+
+        Highlights some "problems" in TREC and Sormunen judgements.
+
+        Explanatory fig: check\_gross\_ranks\_med.pdf (with only
+        median-per-doc, rather than all obs per person per doc
+        \todo{SM: why not leaving the single colored dots (one dot per
+          document, not per judgement, more readable)? They are
+          informative  and colors are nice}).
+        And across all topics.
+        \todo{SM: again, with colored dots?}
+        Shows that overall it's sensible, but some disagreements (for
+        S, and TREC) and some unjudged that look rel.
+
+        Agreement graph shows that agreement between ME and S
+        is about the same as agreement between TREC and S. Also need to
+        quantify (maybe put mean/median bars on the graph? And calculate
+        an overall mean/median across the cateories, to put in text?
+
+        \todo{Give some examples of why we sometimes see "N" that are
+        higher than the median of "H", and vice versa (e.g. we disagree
+        with sormunen)}
+
+\item RQ2: Now that we have ``meaningful'' gain values, 
+            do system rankings change if you use ME scores as gain vs S categories 
+            in NDCG@10 and ERR@10?
+
+\item RQ2.1: using median NME scores for gains
+
+      => tau versus ordinal, and vs TREC
+
+      => ME vs Sorm ~ 0.8; ME vs TREC ~ 0.81, TREC vs Sorm ~ .88
+
+      => Something's going on, look at users?
+      (coloured lines graph)
+
+
+
+
+      (=> compare with Kanoulas: "the relative difference between gain
+      values is much smaller than the com- monly used ones, giving
+      almost equal weights to both rele- vant and highly relevant
+      documents" )
+
+\item RQ2.2: prev ignores population varation, try also using resampled user NME scores for gains
+           
+      => tau versus ordinal, and vs TREC
+
+\item RQ3: Can ME help us to understand topics better? If you have a population of judges, do they use different gain
+      ratios for different topics? AKA do different topics have
+      different gain profiles?
+      \todo{Histogram of H/N ratios}
+
+      => clearly different for different topics, should not use a single
+      gain distribution unlike prev work
+
+      => calls into question the validity of normalising DCG
+
+
+\item RQ4: Can we use the spread of ME values as a diagnostic for collection/topic/doc quality?
+    \begin{itemize}
+           \item some topics are ``ambiguous'' across a population of users?
+           \item some documents are ``ambiguous'' across a population of users?
+    \end{itemize}
+    Topic difficulty prediction.
+
+
+
+Some other previous RQs follow:
+
+\item RQ2.2: Do system rankings change if you resample ME as gain in NDCG@10 and ERR@10?
+
+\item RQ2.3: What is the range of NDCG@10, ERR@10 you get due to judgement difference?
+
+\item RQ3: Now we know all about users! (ie have numbers/gains), 
+           what can we tell about previous categorical gain values?
+        Is Sormunen categorisation linear? -> recommend mapping from 4-cats to gain 
+              Is it the same across topics?
+
+        Is the TREC categorisation linear? -> recommend mapping from binary to gain (does it matter for binary?)
+
+
+
+\item RQ5: But how do I use ME scores for MAP (or any metric requiring a categorical scale)? JUNK!
+    \begin{itemize}
+        \item RQ3.1 Reduce to binary scale maximising agreement with TREC either per topic, or global.
+                    Compute taus. and/or disagreements with TREC.
+
+        \item RQ3.2 Reduce to quad scale maximising agreement with Sor. either per topic, or global.
+                    Compute taus. and/or disagreements with Sor.
+
+        \item RQ3.3 Reduce to 2 or 4 scale using k-means with eucllidean.
+                    Compute taus. and/or disagreements with Sor.
+
+
+        
+    \end{itemize}
+    
+
+\end{itemize}
+
