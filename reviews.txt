@@ -1,0 +1,95 @@
+           |  Please find below the comments of the Associate Editor:
+           |  
+           |  Thank you for the opportunity to review your work. As you will see,
+           |  the reviewers only have presentation and story-telling comments.
+      NA   |  No further experiments are needed. Please address the reviewers'
+           |  comments to the best of your ability and include a note explaining
+           |  how you addressed the comments.
+           |  
+      NA   |  Please find below the comments from the reviewers of your paper:
+           |  
+           |  Reviewer 1:
+           |  
+           |  This is an extension of a SIGIR 2015 paper. This is a fairly thorough
+           |  revision. In this paper, the authors added an additional research
+           |  question (RQ2), a range of details, both concerning experiments and
+       NA  |  analysis, as well as several new figures and sections. The authors
+           |  carefully detail the additions of the TOIS submission over and above
+           |  the SIGIR paper. I agree with them that they the new material exceeds
+           |  the required 25%.
+           |  
+           |  In the footer on the first page, please add a concise statement of
+           |  the paper's addition after "This paper is a revised and extended
+    Fixed  |  version of [Turpin et al. 2015]; it adds XXX." By the way, you
+           |  should use [Author year] when you refer to a publication and Author
+           |  [year] when you refer to the author (\citep{xxx} and \citet{xxx},
+           |  respectively).
+           |  
+           |  In the related work section, please make precise how the TOIS
+           |  submission differs from the earlier SIGIR 2015 paper.
+           |  
+           |  RQ2 is an important additional ingredient of this extended paper.
+           |  Section 6 is devoted to answering this question. Please explicitly
+           |  announce that that is what you are going to do. And please provide
+           |  answers to the question at the end of section 6. We are now left
+           |  to discover for ourselves what (if any) answer you were able to
+           |  produce for RQ2.
+           |  
+           |  On the whole, the paper is well-written, well-structured and the
+      NA   |  journal extension is well justified. A minor revision to address
+           |  some presentation issues is all that is needed.
+           |  
+           |  ---
+           |  
+           |  Reviewer 2:
+           |  
+           |  I like the paper and the problem that it addresses: magnitude
+           |  estimation for information retrieval and the use of crowd sourcing
+           |  for this purpose. The authors claim that their findings are direct
+           |  implications for IR evaluation. This is probably true, but I think
+           |  the authors can do a better job of articulating them. I recommend
+           |  that each result section 5-8 explicitly (1) starts with one of the
+           |  four research questions, (2) answers it, (3) explains what the
+           |  ramifications of the answers are for IR evaluation.
+           |  
+           |  Some more specific comments:
+           |  
+           |  Section 2.3: good addition. You could consider adding a brief
+           |  discussion on the value of crowd worker disagreement. There is work
+           |  by Lora Aroyo and Chris Welty that you should probably relate to
+           |  in section 2.3
+           |  
+           |  Section 4: This is a better way of organizing the material than in
+           |  the SIGIR version. Collect and report on the data first. And only
+           |  interpret and conclude later. Moving bits from section 3 here (on
+           |  crowd judging and score normalization) makes good sense. Figures 1
+           |  and 2 are new. And so is section 4.2; adding a sentence to 4.2 with
+           |  the upshot of the section would be useful. The expansion of 4.3
+           |  (formerly 3.3) is useful.
+           |  
+           |  The new section 5 coincides more  or less with section 4 in the
+           |  SIGIR paper. Is "We therefore next investigate judge agreement"
+           |  still a useful  way of ending this section, given the inclusion of
+           |  a new research question?
+           |  
+           |  Section 6:  ranges of scores for each worker involved was very wide
+           |  --> RANGE of scores. Figure 7 has no legends (neither x nor y).
+           |  What are the practical implications of the statement at the very
+           |  end of section 6, about the number of required workers? And what
+           |  does it say about setups where a smaller number of workers has been
+           |  used?
+           |  
+           |  Section 7 coincides with the old section 5. Figs 10, 11, 12 need
+           |  legends. It would be good to explain the differences in absolute
+           |  numbers between Table IV in the TOIS submission and Table 2 in the
+           |  SIGIR paper. And why these differences do not matter.
+           |  
+           |  Section 8: I am not sure I am happy with the uncertain ending of
+           |  this section. What does the disagreement with Kanoulas and Aslam's
+           |  earlier work mean for our "ideal" evaluation setup?
+           |  
+           |  Section 9: the addition of a "limitations" section is an excellent
+           |  idea.
+           |  
+           |  Appendix A: I like this addition. A screen dump of the instruction
+           |  interface would have been helpful.
