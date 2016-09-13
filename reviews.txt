@@ -25,7 +25,7 @@
            |  [year] when you refer to the author (\citep{xxx} and \citet{xxx},
            |  respectively).
            |  
-           |  In the related work section, please make precise how the TOIS
+    Done   |  In the related work section, please make precise how the TOIS
            |  submission differs from the earlier SIGIR 2015 paper.
            |  
            |  RQ2 is an important additional ingredient of this extended paper.
@@ -50,7 +50,7 @@
            |  the authors can do a better job of articulating them. I recommend
            |  that each result section 5-8 explicitly (1) starts with one of the
            |  four research questions, (2) answers it, (3) explains what the
-           |  ramifications of the answers are for IR evaluation.
+     TODO  |  ramifications of the answers are for IR evaluation.
            |  
            |  Some more specific comments:
            |  
