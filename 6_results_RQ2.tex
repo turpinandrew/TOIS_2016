@@ -56,7 +56,7 @@ data: different judges can truly have different opinions on the
 relevance of a document, whatever scale of measurement is used.
 Usually IR evaluators assume that this variation is distilled into a single 
 value (for example: mean, median or mode) 
-that represents a population of users.
+that represents a population of users \sm{, but there might not be a unique truth~\citep{aroyo2015truth}}.
 Of course, the third source is in need of particular attention: low
 quality workers might express unreliable scores, and in general this
 would lead to low internal agreement.
@@ -200,7 +200,7 @@ of workers agreeing more with Sormunen than TREC using this metric.
 
 \begin{figure}[tp]
   \centering
-  \includegraphics[width=.7\linewidth]{figs/pairwise5.pdf}
+  \includegraphics[width=.75\linewidth]{figs/pairwise5.pdf}
   \vspace{-0.0cm}
   \caption{Raw agreement on the ordering of relevance of all document pairs (one
 small dot per topic) between judges as indicated on the x-axis (ME: magnitude
@@ -232,7 +232,7 @@ eighth column, and for comparison, the final column shows the pairwise
 agreement between TREC and Sormunen, assuming that 
 \nn equates  to TREC category ``0'', and the other three Sormunen categories 
 equate to TREC category ''1''.
-Red circles indicate the mean score over the 18 topics for each group.
+Red large circles indicate the mean score over the 18 topics for each group.
 It can be seen that the rates of agreement are highly consistent when
 comparing any of the three relevance scales.
 In particular, ME scores for \hh documents are greater than those for 
@@ -641,6 +641,13 @@ to be 95\% confident that mean normalized scores are within $E$ of the true popu
 %%%% \aht{yes - this interesting. Cannot decide whether to do it here, or in the next paper. For
 %%%% ease, it is the next paper :) }
 %%%% 
+
+
+\subsection{Summary}
+\label{sec:summary-1}
+
+\sm{Let us wrap up an overall answer to  RQ\ref{item:rq4}. As we anticipated, using ME with crowdsourcing could potentially raise several concerns, including: subjectiveness of the scale, normalization issues, lack of proper training, potential internal and/or external disagreement, and overall cost in terms of the number of redundant workers needed.}
+\sm{On the basis of the results presented so far we can conclude that, at least with our setting and our quality checks in place (see items (a)--(d) in Section~\ref{sec:quality-checks}), we can be reassured that magnitude estimation relevance scores gathered by means of crowdsourcing are reliable. Also, the cost is competitive, as in our experiment it is in the same range of the cost of collecting ordinal scale judgments, and there are clues that it can be lowered by collecting fewer judgments.}
 
 % Local Variables:
 % TeX-master: "ME-TOIS.tex"

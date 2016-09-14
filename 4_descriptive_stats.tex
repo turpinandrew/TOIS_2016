@@ -59,7 +59,7 @@ Vertical dashed lines are at 1, 2, 5 and 10.}
 \end{figure}
 
 Magnitude estimation scores should be approximately
-log-normal~\citep{Mar74,moskowitz:1977}. 
+log-normally distributed~\citep{Mar74,moskowitz:1977}. 
 %\sm{ks test on the logs does not indicate normality but...}
 Figure~\ref{fig:ME-raw-scores} shows the situation for our data, 
 plotting the Cumulative Distribution Functions (CDFs) of:
@@ -88,8 +88,8 @@ Topic means ranged from 7.9 to 12.9, and topic standard deviations ranged
 from 17.5 to 23.2.
 
 \textcolor{red}{
-Given that the ME scores for document relevance that we have observed are 
-distributed as seen previously in other tasks where ME has been used, 
+Given that the  scores for document relevance that we have observed are 
+distributed as seen previously in other tasks where magnitude estimation has been used, 
 we can adopt normalizing and aggregating approaches that have been used before in
 the literature.
 }
@@ -188,7 +188,7 @@ of the magnitude estimation process.
 Other normalizations have been proposed, 
 for example using the median or the arithmetic mean instead of the
 geometric mean (especially when zero is an allowed score, so the
-geometric mean cannot be used)~\citet{moskowitz:1977}.
+geometric mean cannot be used)~\citep{moskowitz:1977}.
 Other approaches include carrying out an additional calibration task
 that is aimed at understanding the differences in individual scales;
 in our scenario, this might be implemented by exploiting the \nkn and
@@ -231,17 +231,18 @@ more log-normal.
 % \subsection{Score aggregation[.5pg]}
 % \label{sec:score-aggregation}
 
-The problem of aggregating several ME scores for the same item also
-needs some attention. 
+The problem of aggregating several ME 
+scores for the same item also needs some attention. 
 For each topic-document pair we collected at least 10 ME scores, by 10
 different workers (many more for the \nkn and \hkh documents). 
-In the following we will primarily use the \emph{median} of the normalized ME
-scores for a topic-document pair, although again alternatives are available at this step,
-such as using the arithmetic mean or
-the geometric mean of obtained ME scores~\cite{moskowitz:1977}. 
-We briefly examine the effect of 
-different normalization and aggregating schemes
-on our findings in Section~\ref{sec:judge-agreement}.
+In the following we will primarily use the \emph{median} of the
+normalized ME scores for a topic-document pair, although again
+alternatives are available at this step, such as using the arithmetic
+mean or the geometric mean of obtained ME
+scores~\cite{moskowitz:1977}. 
+We briefly examine the effect of different normalization and
+aggregating schemes on our findings in
+Section~\ref{sec:judge-agreement}.
 
 % Local Variables:
 % TeX-master: "ME-TOIS.tex"
