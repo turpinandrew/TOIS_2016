@@ -1,8 +1,9 @@
 \documentclass{article}
 
-\setlength\textheight{19.5cm}
+\usepackage{xcolor}
+\usepackage[top=10mm, bottom=10mm, left=10mm, right=10mm]{geometry}
 
-\newcommand{\comment}[1]{\vspace{1em} \emph{#1} \vspace{1em}}
+\newcommand{\comment}[1]{\vspace{1em} \textcolor{red}{{#1}} \vspace{1em}}
 
 \begin{document}
 
@@ -76,7 +77,15 @@ a new research question?
 \comment {We have deleted the offending sentence at the end of Section 5.}
 
 Section 6:  ranges of scores for each worker involved was very wide
---> RANGE of scores. Figure 7 has no legends (neither x nor y).
+$\rightarrow$ RANGE of scores. 
+
+\comment {Fixed, thanks.}
+
+Figure 7 has no legends (neither x nor y).
+
+\comment {Curious: there are axis labels, and the symbols are explained
+in the caption. Perhaps a printing error on the reviewer's side?} 
+
 What are the practical implications of the statement at the very
 end of section 6, about the number of required workers? And what
 does it say about setups where a smaller number of workers has been
@@ -84,12 +93,18 @@ used?
 
 \comment {to do}
 
-Section 7 coincides with the old section 5. Figs 10, 11, 12 need
-legends. It would be good to explain the differences in absolute
+Section 7 coincides with the old section 5. 
+Figs 10, 11, 12 need legends. 
+
+\comment {Again, this seems fine on our copies.}
+
+\comment {to do}
+
+It would be good to explain the differences in absolute
 numbers between Table IV in the TOIS submission and Table 2 in the
 SIGIR paper. And why these differences do not matter.
 
-\comment {to do}
+\comment {We have added a sentence at the end of the first paragraph in Section 7.2 explaining the difference.}
 
 Section 8: I am not sure I am happy with the uncertain ending of
 this section. What does the disagreement with Kanoulas and Aslam's

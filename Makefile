@@ -16,6 +16,8 @@ final:	pdf bbl
 	pdflatex $(FINAL)
 	pdflatex $(FINAL)
 
+response:
+	pdflatex response.tex
 
 clean:
 	rm -f *~ *.bak *.log *.blg *.aux

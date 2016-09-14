@@ -114,6 +114,11 @@ By aggregating scores over units that have a high agreement with the
 original TREC orderings, any differences in system rankings we see should be more
 attributable to the scale of the gain values, rather than perturbations in
 document orderings given by different gain values.
+\textcolor{red}{Note that this is a slightly less confounded methodology 
+than was used in our previous paper~\cite{ME-SIGIR15}, which simply took the median 
+of all units, and accounts for the 
+differences between the figures and tables in this section and 
+that previous paper.}
 
 Figure~\ref{fig:runs-rerank-median3best} shows the concordance between
 system rankings using TREC categories and ME scores as gain values.
@@ -378,7 +383,7 @@ when using TREC and Sormunen judgments, and magnitude estimation
 scores when the median is obtained from units that used a narrow scale,
 a wide scale, or from all units (note that the $\tau$ values in the All
 column match those in Figures~\ref{fig:runs-rerank-median3best}
-and~\ref{fig:runs-rerank-median3best-fake}.
+and~\ref{fig:runs-rerank-median3best-fake}).
 % \sm{false, taus are different now}
 % \ref{fig:runs-rerank-median}
 % and~\ref{fig:runs-rerank-median-fake}).
@@ -389,6 +394,7 @@ When there was no narrow or wide judgment for a topic-document pair
 (all units containing that topic-document pair had
 $\mbox{\hkh}/\mbox{\nkn}$ above or below the median), the median of the three best units was used.
 This occurred in 12\% of TREC topic-document pairs, and 7\% of Sormunen topic-document pairs.
+\textcolor{green}{PANIC!!!!
 System orderings based on narrow or wide units show greater differences
 (lower $\tau$ values) than when considering the full data set.
 This is consistent with the results in Table~\ref{tab:scaling-cats}.
@@ -400,6 +406,7 @@ This may be due to the relatively small number of topics that is being
 considered, especially for the simulated systems, and more topics are
 required before a definitive conclusion about the effect of narrow and
 wide units on the top set can be made.
+}
 
 
 \begin{table}[t]
