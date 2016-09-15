@@ -233,6 +233,30 @@ set using either metric with the different judgments, however.
 %%%easier too. I will do (14 Dec).}
 %%%}
 
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=.6\linewidth]{figs/sysRank_scatter_TREC_med3bestME.pdf}
+  \caption{System scores using TREC categories (y-axis) 
+    and magnitudes (x-axis) as gains in 
+    the nDCG@10 and ERR@10 metrics. There is one dot for each of the 129 systems 
+    participating in the TREC-8 ad hoc track, with red dots showing the top-set (see text).
+    Magnitudes used are the median of the three units per document that most agree with TREC
+    document rankings.
+    Kendall's $\tau$ is shown. 
+  \label{fig:runs-rerank-median3best}
+  }
+\end{figure}
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=.6\linewidth]{figs/sysRank_scatter_FAKE_medME3bestME.pdf}
+  \caption{As for Figure~\ref{fig:runs-rerank-median3best} but using 
+           Sormunen categories (y-axis) and simulated runs as described in the text.
+  \label{fig:runs-rerank-median3best-fake}
+  }
+\end{figure}
+
+
 The previous section showed that using magnitudes as gain led to
 changes in the ranking of systems using different metrics, even when
 only aggregating over magnitude judgments that agreed with individual pairwise
@@ -253,30 +277,7 @@ $\tau$ values.
 % \aht{I don't think I need to alter this as the median-of-best-3 aggregator falls withint he
 % boxes.}
 
-\begin{figure}[p]
-  \centering
-  \includegraphics[width=.6\linewidth]{figs/sysRank_scatter_TREC_med3bestME.pdf}
-  \caption{System scores using TREC categories (y-axis) 
-    and magnitudes (x-axis) as gains in 
-    the nDCG@10 and ERR@10 metrics. There is one dot for each of the 129 systems 
-    participating in the TREC-8 ad hoc track, with red dots showing the top-set (see text).
-    Magnitudes used are the median of the three units per document that most agree with TREC
-    document rankings.
-    Kendall's $\tau$ is shown. 
-  \label{fig:runs-rerank-median3best}
-  }
-\end{figure}
-\begin{figure}[p]
-  \centering
-  \includegraphics[width=.6\linewidth]{figs/sysRank_scatter_FAKE_medME3bestME.pdf}
-  \caption{As for Figure~\ref{fig:runs-rerank-median3best} but using 
-           Sormunen categories (y-axis) and simulated runs as described in the text.
-  \label{fig:runs-rerank-median3best-fake}
-  }
-\end{figure}
-
-
-\begin{figure}[p]
+\begin{figure}[tbp]
   \centering
   \includegraphics[width=.7\linewidth]{figs/metrics_resample.pdf}
   \caption{Kendall's $\tau$ between system rankings obtained using gains from 
@@ -301,7 +302,7 @@ effect is nullified to a degree.
 For example, multiplying gains by a constant has no effect on nDCG, and
 even altering the category scores using a small exponential or additive
 constant has little effect.
-Table~\ref{tab:scaling-cats} shows this Kendall's $\tau$ for our 12
+\sm{The following sentence is... unclear}Table~\ref{tab:scaling-cats} shows this Kendall's $\tau$ for our 12
 topics on the simulated systems using various mappings of Sormunen
 categories to gain values, and a mapping of those categories.
 The final two rows hint that using gain values from a broad scale,
