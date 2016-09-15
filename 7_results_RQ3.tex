@@ -116,9 +116,10 @@ attributable to the scale of the gain values, rather than perturbations in
 document orderings given by different gain values.
 \textcolor{red}{Note that this is a slightly less confounded methodology 
 than was used in our previous paper~\cite{ME-SIGIR15}, which simply took the median 
-of all units, and accounts for the 
+of all units, even if the unit wildly disagreed with the ordering of documents
+given by the categorical judgements. This revised methodology accounts for the 
 differences between the figures and tables in this section and 
-that previous paper.}
+in the previous paper.}
 
 Figure~\ref{fig:runs-rerank-median3best} shows the concordance between
 system rankings using TREC categories and ME scores as gain values.
@@ -228,7 +229,7 @@ set using either metric with the different judgments, however.
 %%%    consider worker subsets rather than individual workers; select
 %%%    only the workers with pairwise agreement high enough. Hm?
 %%%  \end{itemize}
-%%%  \aht{OK, i agree there is a confound that and this can be imrpoved.
+%%%  \aht{OK, i agree there is a confound that and this can be improved.
 %%%I think we leave 6.3 out of this paper, and that makes this section 
 %%%easier too. I will do (14 Dec).}
 %%%}
@@ -302,15 +303,21 @@ effect is nullified to a degree.
 For example, multiplying gains by a constant has no effect on nDCG, and
 even altering the category scores using a small exponential or additive
 constant has little effect.
-\sm{The following sentence is... unclear}Table~\ref{tab:scaling-cats} shows this Kendall's $\tau$ for our 12
-topics on the simulated systems using various mappings of Sormunen
-categories to gain values, and a mapping of those categories.
+Table~\ref{tab:scaling-cats} shows the effect of using different methods 
+for converting the categorical values ($C_i$) from Sormunen into gain values
+($G_i$) for computing nDCG and ERR
+using our 12 topics on the simulated systems.
+Kendall's $\tau$ is computed between the system rankings given using 
+the categorical values as gains ($C_i=G_i$), and the other methods, 
+hence the top row has perfect correlation.
 The final two rows hint that using gain values from a broad scale,
 while preserving document orderings, may alter system rankings,
 particularly with nDCG@10, compared with simply using the category
 values as gains.
 The final row perhaps best represents our magnitude scores, and so goes
-partway to explaining the low $\tau$ values in the previous section.
+part way to explaining the low $\tau$ values in the previous section.
+It does not, however, explain all of the changes in system rankings: 
+it still seems that our ME judgments are different in more than scale. 
 
 
 \begin{table}[tp]
@@ -330,7 +337,7 @@ when using the nDCG@10 and ERR@10 metrics.
     \multicolumn{2}{c}{Top-set overlap}  \\
  Mapping                  & nDCG@10 & ERR@10     && nDCG@10 & ERR@10 \\
 \midrule
-% $G_i=C_i$               &  1.000 & 1.000       &&  \ 32\%  & \ 68\% \\
+$G_i=C_i$               &  1.000 & 1.000       &&  100\%  & 100\% \\
 % $G_i=$ med-best-3       &  0.147 & 0.060       &&  100\%  & 100\% \\
  $G_i= 100\times C_i$     &  1.000 & 0.698       &&  100\%  & 100\% \\
  $G_i= 1+C_i$             &  0.989 & 0.969       &&  \ 98\%  & \ 95\% \\
@@ -355,7 +362,7 @@ when using the nDCG@10 and ERR@10 metrics.
 % Maybe we can simply subtract 2?!
 % } 
 %\aht{agreed - that is a little strange. I checked that all is kosher (14 Dec) and yes - it is
-%the agregation function == median that is creating the floor of 2. Let's leave it as median in
+%the aggregation function == median that is creating the floor of 2. Let's leave it as median in
 %this paper though so that it is similar to the SIGIR paper (same reviewers, etc).}
 % \fns{Also it perhaps doesn't matter too much, these ME scores are
 % relative and perception-based.}
@@ -377,6 +384,9 @@ One way to examine this further is to split our data into
 \emph{narrow} units, those whose $\mbox{\hkh}/\mbox{\nkn}$ ratios are
 less than 5 (the median value), and \emph{wide} units, where the
 ratios $\mbox{\hkh}/\mbox{\nkn}$ are 5 or more.
+Figure~\ref{fig:hn-ratio} shows a histogram of the number of units with each ratio.
+This creates a set of judgments with a scale similar to Sormunen (the narrow units), and 
+a set of judgments that are over a larger range (wide units).
 
 Table~\ref{tab:thin-med-thick} shows the correlation (Kendall's
 $\tau$) between system orderings, and overlap of runs in the top set,
@@ -395,19 +405,6 @@ When there was no narrow or wide judgment for a topic-document pair
 (all units containing that topic-document pair had
 $\mbox{\hkh}/\mbox{\nkn}$ above or below the median), the median of the three best units was used.
 This occurred in 12\% of TREC topic-document pairs, and 7\% of Sormunen topic-document pairs.
-\textcolor{green}{PANIC!!!!
-System orderings based on narrow or wide units show greater differences
-(lower $\tau$ values) than when considering the full data set.
-This is consistent with the results in Table~\ref{tab:scaling-cats}.
-The overlap of the top set is generally less than 100\% for the
-narrow/wide data sets, indicating that some perturbation of the set of
-``equivalent'' top systems is occurring, but the pattern is not as clear as
-for $\tau$ values.
-This may be due to the relatively small number of topics that is being
-considered, especially for the simulated systems, and more topics are
-required before a definitive conclusion about the effect of narrow and
-wide units on the top set can be made.
-}
 
 
 \begin{table}[t]
@@ -420,24 +417,24 @@ narrow, wide or all units.
 }{%
 \begin{tabular}{rccc}
 \toprule
-\multicolumn{1}{l}{Source of gains} & Narrow & All & Wide \\
+\multicolumn{1}{l}{Source of gains} & Narrow & Wide & All \\
 \midrule
 \multicolumn{1}{l}{TREC, $\tau$} \\ \cmidrule(l){1-1} %cline{1-1}
-nDCG@10 & 0.679 & 0.677 & 0.744 \\ 
-ERR@10  & 0.361 & 0.222 & 0.247 \\ 
+nDCG@10 & 0.679  & 0.744 & 0.677\\ 
+ERR@10  & 0.361  & 0.247 & 0.222\\ 
 \addlinespace
 \multicolumn{1}{l}{TREC, top set} \\ \cmidrule(l){1-1} 
-nDCG@10 & 63.64\% & 81.82\% & 72.73\% \\ 
-ERR@10  & 20.00\% & 20.00\% & 60.00\% \\ 
+nDCG@10 & 63.64\% & 72.73\% & 81.82\% \\ 
+ERR@10  & 20.00\% & 60.00\% & 20.00\% \\ 
 
 \addlinespace
 \multicolumn{1}{l}{Sormunen-Simulated, $\tau$} \\  \cmidrule(l){1-1} 
-nDCG@10 & 0.036 & 0.147 & 0.382 \\ 
-ERR@10  & 0.017 & 0.060 & 0.323 \\ 
+nDCG@10 & 0.036 & 0.382 & 0.147  \\ 
+ERR@10  & 0.017 & 0.323 & 0.060  \\ 
 \addlinespace
 \multicolumn{1}{l}{Sormunen-Simulated, top set} \\ \cmidrule(l){1-1} 
-nDCG@10 & \ 9.76\% & 31.71\% & \ 68.29\% \\ 
-ERR@10  & 68.18\% & 68.18\% & 100.00\% \\ 
+nDCG@10 & \ 9.76\% & \ 68.29\% & 31.71\%  \\ 
+ERR@10  & 68.18\%  & 100.00\%  & 68.18\% \\ 
 
 \bottomrule
 \end{tabular}
@@ -456,21 +453,52 @@ ERR@10  & 68.18\% & 68.18\% & 100.00\% \\
   \label{fig:hn-ratio}
 \end{figure}
 
+\textcolor{green}{
+Generally the correlations between the system rankings based on 
+categorical and ME gain values are higher when the wide judgements
+are used as opposed to the narrow judgements.
+This contradicts our expectations from 
+Table~\ref{tab:scaling-cats}, which indicated that
+a larger scale of gains led to a decrease in correlations.
+This confirms that a simple argument based on the scale 
+of judgements is not sufficient in explaining different system orders, 
+although the number of topics used here is small (12).
+We examine this further in the next section.
+}
 
-Overall, there are clear differences in system effectiveness orderings
-as measured using Kendall's $\tau$,
-when using narrow and wide units.
-In particular, it appears that using the median of narrow units, or of
-all units, leads to higher correlations with existing measurement
-techniques, compared to when using wide units.
-We can therefore infer that current evaluations using nDCG@10 and ERR@10
-do not assume wide units as their underlying user model.
-This is important because it shows that nearly half of our
-participants are not behaving according to the user model assumed by
-current evaluation techniques.
-Figure~\ref{fig:hn-ratio} shows the full distribution of the ``width''
-($\mbox{\hkh}/\mbox{\nkn}$ ratio) of units rounded to the nearest 5 
-(with bars containing less than 4 units omitted).
+
+%Overall, there are clear differences in system effectiveness orderings
+%as measured using Kendall's $\tau$,
+%when using narrow and wide units.
+%In particular, it appears that using the median of narrow units, or of
+%all units, leads to higher correlations with existing measurement
+%techniques, compared to when using wide units.
+%We can therefore infer that current evaluations using nDCG@10 and ERR@10
+%do not assume wide units as their underlying user model.
+%This is important because it shows that nearly half of our
+%participants are not behaving according to the user model assumed by
+%current evaluation techniques.
+
+\subsection{Summary}
+\label{sec:summary-7}
+
+\textcolor{red}{
+In answering RQ\ref{item:rq2}, we have shown that there are clear
+differences in system rankings using nDCG and ERR metrics on this data
+when using ME scores as gain values compared with using ordinal
+categories as gain values.
+Depending on the judgements and the metric used, correlations between
+system orderings using ME and the categorical judgements, as measured
+with Kendall's $\tau$, varied between about 0.8 and -0.2. 
+At first this might seem like a simple scaling problem, where 
+ME judgements are over a wider range than categorical judgments.
+While this is true, a much more likely explanation is that there is
+substantial individual variance in not only how people perceive the
+relevance of an individual document, but also in how they perceive the
+ratio of relevance of one document to another.
+}
+ 
+
 
 % Local Variables:
 % TeX-master: "ME-TOIS.tex"

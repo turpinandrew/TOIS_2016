@@ -82,7 +82,7 @@ However, again, we see a wide variation from this median, and mean
 values of the ratios are 48, 22 and 24 respectively, further suggesting
 that there may not be a single gain setting that is suitably
 representative across different user perceptions and tasks.
-% This hints that using median aggregation might be best for maximising the statistical efficiency of system
+% This hints that using median aggregation might be best for maximizing the statistical efficiency of system
 % comparisons using magnitudes as gain values.
 % \aht{Really - does this last sentence even make logical senes? median of ratios matches, so use median
 % aggregation???}
@@ -97,6 +97,24 @@ representative across different user perceptions and tasks.
   \label{fig:ka}
     }
 \end{figure}
+
+\subsection{Summary}
+
+\textcolor{red}{
+In the previous section, and in this section, we have seen not only 
+that relevance values for a single document vary amongst users, but
+the ratio of relevance between two documents also varies.
+Thus, in answer to RQ\ref{item:rq3}, the selection of a single 
+gain formulation as either
+a linear or exponential mapping of categorical judgements
+is guaranteed to misrepresent at least half of our users 
+in this data set.
+Similarly, choosing a single gain formulation to maximize statistical 
+efficiency of system comparisons will also misrepresent a large 
+part of the user population.
+}
+
+
 
 
 % Local Variables:
