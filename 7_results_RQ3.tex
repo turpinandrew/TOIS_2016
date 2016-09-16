@@ -5,7 +5,7 @@
 The third research question RQ\ref{item:rq2} concerns the direct
 application of magnitude estimation relevance judgments for the
 evaluation of IR systems, by considering their use for calibrating
-gain levels in two most widely-used gain-based IR evaluation metrics, nDCG
+gain levels in two widely-used gain-based IR evaluation metrics, nDCG
 and ERR.
 
 % \sm{should we add some other metric? That Graded-MAP mentioned by
@@ -103,23 +103,25 @@ documents of all runs submitted to TREC-8, for our 18 judged topics.
 % 
 % Here we make a small alteration to the aggregation of the ME scores to
 % get a single score for a document.
-Rather than taking the median of all scores assigned to a document, we
-take the median of scores taken from the three units that have document
-orderings that have the highest agreement with the TREC orderings, or
-Sormunen orderings, respectively.
-In effect, the scores derived from units with high internal agreement as
-computed in Section~\ref{sec:internal-agreement}, with ties broken in favor
-of units with the least unjudged documents.
+
+Rather than simply taking the median of all ME scores assigned to a
+document, we take the median of scores taken from the three units that
+have document orderings that have the highest agreement with the TREC
+orderings, or Sormunen orderings, respectively.
+In effect, the scores derived from units with high internal agreement
+as computed in Section~\ref{sec:internal-agreement}, with ties broken
+in favor of units with the least unjudged documents.
 By aggregating scores over units that have a high agreement with the
-original TREC orderings, any differences in system rankings we see should be more
-attributable to the scale of the gain values, rather than perturbations in
-document orderings given by different gain values.
+original TREC orderings, any differences in system rankings we see
+should be more attributable to the scale of the gain values, rather
+than perturbations in document orderings given by different gain
+values.
 \textcolor{red}{Note that this is a slightly less confounded methodology 
-than was used in our previous paper~\cite{ME-SIGIR15}, which simply took the median 
-of all units, even if the unit wildly disagreed with the ordering of documents
-given by the categorical judgments. This revised methodology accounts for the 
-differences between the figures and tables in this section and 
-in the previous paper.}
+than was used in our previous paper~\cite{ME-SIGIR15}, which simply
+took the median of all units, even if the unit wildly disagreed with
+the ordering of documents given by the categorical judgments.
+This revised methodology accounts for the differences between the
+figures and tables in this section and in the previous paper.} 
 
 Figure~\ref{fig:runs-rerank-median3best} shows the concordance between
 system rankings using TREC categories and ME scores as gain values.
@@ -270,7 +272,7 @@ As we have at least 10 judgments per topic-document pair, we can
 re-sample individual scores many times, recompute system orderings, and
 get a distribution of $\tau$ values.
 The results are shown in Figure~\ref{fig:runs-rerank-resample}: the
-correlations between system orderings seen in the previous section sit about in the middle 
+correlations between system orderings seen in the previous section sit around the middle 
 of these distributions.
 The spread of the distributions reflect the wide range of individual variation -- differences in
 perceptions of relevance -- that in turn leads to a wide range of
@@ -453,18 +455,17 @@ ERR@10  & 68.18\%  & 100.00\%  & 68.18\% \\
   \label{fig:hn-ratio}
 \end{figure}
 
-\textcolor{red}{
-Generally the correlations between the system rankings based on 
-categorical and ME gain values are higher when the wide judgments
-are used as opposed to the narrow judgments.
-This contradicts our expectations from 
-Table~\ref{tab:scaling-cats}, which indicated that
-a larger scale of gains led to a decrease in correlations.
-This confirms that a simple argument based on the scale 
-of judgments is not sufficient in explaining different system orders, 
-although the number of topics used here is small (12).
+\textcolor{red}{ Generally the correlations between the system rankings
+based on categorical and ME gain values are higher when the wide
+judgments are used as opposed to the narrow judgments.
+This contradicts our expectations from Table~\ref{tab:scaling-cats},
+which indicated that a larger scale of gains led to a decrease in
+correlations.
+This confirms that a simple argument based on the scale of judgments is
+not sufficient to explain the different system orderings, although the
+number of topics used here is small (12).
 We examine this further in the next section.
-}
+} 
 
 
 %Overall, there are clear differences in system effectiveness orderings
