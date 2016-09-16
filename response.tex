@@ -1,24 +1,30 @@
-\documentclass{article}
-
+\documentclass[a4paper]{article}
 \usepackage{xcolor}
-\usepackage[top=10mm, bottom=10mm, left=10mm, right=10mm]{geometry}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
 
 \newcommand{\comment}[1]{\vspace{1em} \textcolor{red}{{#1}} \vspace{1em}}
 
 \begin{document}
 
+We thank the reviewers for their constructive feedback and suggestions
+for improvements.
+Our responses to particular comments are outlined below.
+Changes in the manuscript have been highlighted in red font to make
+them easy to spot.
+
+
 \section{Reviewer 1}
 
-...
-
 In the footer on the first page, please add a concise statement of
-the paper's addition after "This paper is a revised and extended
+the paper's addition after ``This paper is a revised and extended
 version of [Turpin et al. 2015]; it adds XXX." By the way, you
 should use [Author year] when you refer to a publication and Author
 [year] when you refer to the author (citep{xxx} and citet{xxx},
 respectively).
 
-\comment{This has been fixed, thank you.}
+\comment{The citation style has been fixed, thank you. A detailed list of changes has
+been added at the end of the related work section, in line with the next
+item.}
 
 In the related work section, please make precise how the TOIS
 submission differs from the earlier SIGIR 2015 paper.
@@ -34,7 +40,6 @@ produce for RQ2.
 
 \comment{We have added Section 6.4 which summarises the section.}
 
-\noindent ...
 
 
 \section{Reviewer 2}
@@ -75,7 +80,7 @@ the upshot of the section would be useful. The expansion of 4.3
 \comment {We have added the sentence at the end of 4.2}
 
 The new section 5 coincides more  or less with section 4 in the
-SIGIR paper. Is "We therefore next investigate judge agreement"
+SIGIR paper. Is ``We therefore next investigate judge agreement"
 still a useful  way of ending this section, given the inclusion of
 a new research question?
 
@@ -113,20 +118,24 @@ difference, and have altered the text in the final two paragraphs of Section~7.3
 
 Section 8: I am not sure I am happy with the uncertain ending of
 this section. What does the disagreement with Kanoulas and Aslam's
-earlier work mean for our "ideal" evaluation setup?
+earlier work mean for our ``ideal" evaluation setup?
 
-\comment{We have added Section~8.2 Summary to clarify this.}
+\comment{We have added Section~8.1 Summary to clarify this.}
 
-Section 9: the addition of a "limitations" section is an excellent
+Section 9: the addition of a ``limitations" section is an excellent
 idea.
 
 Appendix A: I like this addition. A screen dump of the instruction
 interface would have been helpful.
 
-\comment{The exact instructions that appeared on the screen are already given in the appendix, and a screen
-dump would just format them in an HTML/www style, rather than text. As such, we 
-don't think a screen dump adds anything here. However, even if the reviewer is insistent, it turns 
-out that CrowdFlower has undergone an `upgrade' since we
-ran the experiments, and, sadly, the exact screen shot is no longer available anyway.
-}
+\comment{The exact instructions that appeared on the screen are already
+given in the appendix, and a screen dump would just format them in an
+HTML/www style, rather than text.
+As such, we don't think that an extra screen dump of the instructions
+would be informative.
+(In any case, it unfortunately turns out that CrowdFlower has undergone
+an `upgrade' since we ran the experiments, so, sadly, the exact screen
+shot is no longer available anyway.)
+} 
+
 \end{document}
