@@ -116,12 +116,12 @@ original TREC orderings, any differences in system rankings we see
 should be more attributable to the scale of the gain values, rather
 than perturbations in document orderings given by different gain
 values.
-\textcolor{red}{Note that this is a slightly less confounded methodology 
+Note that this is a slightly less confounded methodology 
 than was used in our previous paper~\cite{ME-SIGIR15}, which simply
 took the median of all units, even if the unit wildly disagreed with
 the ordering of documents given by the categorical judgments.
 This revised methodology accounts for the differences between the
-figures and tables in this section and in the previous paper.} 
+figures and tables in this section and in the previous paper.
 
 Figure~\ref{fig:runs-rerank-median3best} shows the concordance between
 system rankings using TREC categories and ME scores as gain values.
@@ -455,7 +455,7 @@ ERR@10  & 68.18\%  & 100.00\%  & 68.18\% \\
   \label{fig:hn-ratio}
 \end{figure}
 
-\textcolor{red}{ Generally the correlations between the system rankings
+Generally the correlations between the system rankings
 based on categorical and ME gain values are higher when the wide
 judgments are used as opposed to the narrow judgments.
 This contradicts our expectations from Table~\ref{tab:scaling-cats},
@@ -465,7 +465,6 @@ This confirms that a simple argument based on the scale of judgments is
 not sufficient to explain the different system orderings, although the
 number of topics used here is small (12).
 We examine this further in the next section.
-} 
 
 
 %Overall, there are clear differences in system effectiveness orderings
@@ -483,7 +482,7 @@ We examine this further in the next section.
 \subsection{Summary}
 \label{sec:summary-7}
 
-\textcolor{red}{ In answering RQ\ref{item:rq2}, we have shown that
+In answering RQ\ref{item:rq2}, we have shown that
 there are clear differences in system rankings using nDCG and ERR
 metrics on this data when using ME scores as gain values compared with
 using ordinal categories as gain values.
@@ -497,7 +496,6 @@ a much more likely explanation is that there is substantial individual
 variance in not only how people perceive the relevance of an individual
 document, but also in how they perceive the ratio of relevance of one
 document to another.
-} 
  
 
 
