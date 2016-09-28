@@ -1,0 +1,26 @@
+
+- footer of p1: Turpin et al. [2015] should be [Turpin et al. 2015]. Please swap the order of this sentence and
+  the authors' addresses.
+
+Changed.
+
+- Similarly, p24: Kanoulas and Aslam [Kanoulas and Aslam 2009] recommend should be Kanoulas and Aslam [2009]
+  recommend; please check the paper carefully for other errors like this.
+
+Fixed K&A. All checked.
+
+
+- like one of the reviewers, I have a problem with legends for many figures not showing at all; I am viewing
+  your paper on a mac, acrobat reader; you may need to embed any special fonts that you're using
+
+This still bewilders me. I have emailed Maarten Wed 28 Sep 2016 11:37:50 AEST.
+
+- the appendix should come after the bibliography
+
+Fixed.
+
+- in the bibliography:
+-- Tefko. Saracevic should be Tefko Saracevic (drop the full stop)
+-- Please write JASIST in full, like you do for other journals and conferences
+
+Both fixed.
